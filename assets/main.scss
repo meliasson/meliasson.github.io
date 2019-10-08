@@ -14,6 +14,7 @@ a, a:visited {
 body {
   font-family: Times New Roman, serif;
   font-size: 16px;
+  color: rgba(0, 0, 0, 0.84);
 }
 
 main {
@@ -27,11 +28,26 @@ p {
   margin-top: 20px;
 }
 
+figure.image {
+  margin-top: 20px;
+}
+
+img {
+  width: 100%;
+}
+
+figcaption {
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  color: rgba(0, 0, 0, 0.54);
+  text-align: justify;
+}
+
 nav {
   font-family: Arial, sans-serif;
   font-size: 10px;
   font-weight: bold;
-  background: black;
+  background: rgba(0, 0, 0, 0.84);
   padding: 10px;
   text-align: center;
   text-transform: uppercase;
@@ -178,6 +194,10 @@ h1 {
 .highlight .il { color: #2aa198 } /* Literal.Number.Integer.Long */
 
 @media (min-width: 660px) {
+  body {
+    font-size: 18px;
+  }
+
   main {
     margin-left: auto;
     margin-right: auto;
