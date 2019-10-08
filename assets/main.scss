@@ -38,7 +38,7 @@ img {
 
 figcaption {
   font-family: Arial, sans-serif;
-  font-size: 14px;
+  font-size: 12px;
   color: rgba(0, 0, 0, 0.54);
   text-align: justify;
 }
@@ -213,6 +213,10 @@ h1 {
 
   p {
     text-align: justify;
+  }
+
+  figcaption {
+    font-size: 14px;
   }
 
   .content {
