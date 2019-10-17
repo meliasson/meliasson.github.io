@@ -19,6 +19,10 @@ body {
   color: rgba(0, 0, 0, 0.84);
 }
 
+code {
+  font-size: 14px;
+}
+
 main {
   margin-left: 10px;
   margin-right: 10px;
@@ -86,7 +90,7 @@ h1 {
   padding: 10px;
   overflow: scroll;
   // border: 1px solid #efefef;
-  font-size: 14px;
+  // font-size: 14px;
 }
 
 .content {
@@ -112,6 +116,10 @@ h1 {
 @media (min-width: 660px) {
   body {
     font-size: 18px;
+  }
+
+  code {
+    font-size: 15px;
   }
 
   main {
