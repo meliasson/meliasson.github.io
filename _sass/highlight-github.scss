@@ -1,11 +1,10 @@
-.highlighter-rouge {
+.highlight, .highlighter-rouge {
   background: rgba(27,31,35,.05);
-  padding: .2em .4em;
+  font-size: 14px;
 }
 
-.highlight {
-  background: rgba(27,31,35,.05);
-  // color: #586e75
+.highlighter-rouge {
+  padding: .2em .4em;
 }
 
 .highlight .lineno {
@@ -76,3 +75,9 @@
 .highlight .vg { color: #008080 } /* Name.Variable.Global */
 .highlight .vi { color: #008080 } /* Name.Variable.Instance */
 .highlight .il { color: #009999 } /* Literal.Number.Integer.Long */
+
+@media (min-width: 660px) {
+  .highlight, .highlighter-rouge {
+    font-size: 16px;
+  }
+}
