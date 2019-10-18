@@ -12,7 +12,7 @@ In short, offensive programming is about establishing a line of defense for your
 
 Say that we have an application where users, as part of creating accounts, are required to input their social security numbers (SSNs). The code receiving the SSNs supplied by users is outside the application's line of defense. There, we do not demand correct behavior. We check for null, we make sure that the format of received SSNs is the one we want, we guard against malicious input, and so on. Inside the line of defense, on the other hand, we do the opposite: We assume, and may even assert, that our software's behavior is correct. If SSNs are required on accounts in our application, nowhere do we check for null:
 
-{% highlight javascript linenos %}
+{% highlight javascript %}
 // We just do:
 functionThatCrashesIfSsnIsNull(account.ssn);
 
@@ -28,14 +28,14 @@ If `account.ssn` is null in the code snippet above, we have a problem. But the p
 
 If we have decided that SSNs should be of a certain format in our application&mdash;which we hopefully have&mdash;nowhere do we accept that the format differs from the decided one:
 
-{% highlight javascript linenos %}
+{% highlight javascript %}
 // We just do:
 functionThatNeedsCorrectSsnFormat(account.ssn);
 
 // Instead of tangling ourselves up in:
 let ssn = account.ssn;
-if (isSsnFormatInvalid(account.ssn)) {
-  ssn = tryToFormatSsn(account.ssn)
+if (isSsnFormatInvalid(ssn)) {
+  ssn = tryToFormatSsn(ssn)
 }
 functionThatNeedsCorrectSsnFormat(ssn);
 {% endhighlight %}
