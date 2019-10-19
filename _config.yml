@@ -23,10 +23,8 @@ email: mikael.e.eliasson@gmail.com
 name: Mikael Eliasson
 date_format: "%F"
 description: >- # this means to ignore newlines until "baseurl:"
-  Mikael Eliasson's personal website. Software developer by day and a
-  programmer by night. Thinking he got kind of a Dr. Jekyll and
-  Mr. Hyde thing going, but something like a nerd and someone even
-  nerdier is closer to the truth.
+  Mikael Eliasson's personal website. He's a programmer, and hopefully
+  takes the opportunity to say something interesting here :D
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://mikaeleliasson.se" # the base hostname & protocol for your site, e.g. http://example.com
 permalink: /:title
