@@ -1,12 +1,19 @@
 ---
 layout: post
-title: Coders at work
-date: 2020-01-15
-tags: [book]
+title: Multiplayer game using React and Websocket
+date: 2020-01-25
+tags: [game development, javascript]
 ---
-Page 264, Simon Peyton Jones: Question: How do you go about designing software? Focus is on the idea and what it is. Not so much about getting the idea into code. Relates to sticking with and really understanding the problem. The first solution is rarely the simplest. Maybe because you haven't understood the problem? Strive for simplicity is mentioned on next page, "Couldn't it be simpler this way?".
-Page 266, Simon Peyton Jones: Avoid overgeneralization.
-Page 266, Simon Peyton Jones: Emacs reference.
-Page 269, Simon Peyton Jones: Specify everything leads to specifications so compplex that confidence in their correctness is threatened. Relates to testing everything and ending up with test suites and frameworks and bootstraps that are more complex than the SUT?
-Page 277, Simon Peyton Jones: Program everyday. Promoted until doing what no good at.
-Page 278: Thinking about a problem in the back of your mind for some time.
+I recently completed a first iteration on a real-time multiplayer browser game where the backend is built with [Websocket](https://en.wikipedia.org/wiki/WebSocket){:target="blank"} and [Express](https://expressjs.com/){:target="blank"}, and the frontend with [React](https://reactjs.org/){:target="blank"} and the [Canvas API](https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API){:target="blank"}. Partly because I was curious to find out if the client-server architecture that Websocket gives you is performant enough, and partly because I missed the nerve-racking [Puyo Puyo](https://en.wikipedia.org/wiki/Puyo_Puyo){:target="blank"} matches that took place in the KTH computer labs back when I studied for my master's degree.
+
+{% include image.html url="/assets/puyo-puyo.jpg" description="It was a fun, and sometimes more focus demanding than anticipated, experience to implement a multiplayer Puyo Puyo clone." %}
+
+I expected that a large part of the time I was about to spend on this project would be spent on understanding libraries and frameworks, as well as on performance increasing techniques like [client-side prediction](https://en.wikipedia.org/wiki/Client-side_prediction){:target="blank"}. Little did I think on, or worry about, the actual Puyo Puyo game logic. Maybe because I once upon a time implemented a [simple Tetris version](https://github.com/meliasson/tetris){:target="blank"}, now believing that I could draw on that experience, since Puyo Puyo and Tetris share some fundamental traits.
+
+My expectations where obviously wrong. To get up and running with React, a responsive canvas element, Express, and Websocket was fairly easy. As was deploying to Heroku, with respect to intricacies like running both the client and the server in one and the same app. Game logic basics like gravity, collision detection, exploding of pieces and dropping of debris took considerably more effort to implement.
+
+Is this underestimation of the complexity of business logic perhaps a common pitfall? Could it even be one of the reasons why many of us from time to time suffer from [second-system syndrome](https://en.wikipedia.org/wiki/Second-system_effect){:target="blank"}? I believe we, in general, have a tendency to go with the first solution, rather than staying with the problem long enough to find the elegant solution. By rushing like that, we risk creating unmaintainable spaghetti-like blobs of code. And once we realize that we’ve created a mess, we turn to new programming languages and libraries, in hope of finding salvation. And rarely do, since our business logic probably (hopefully?) is too unique to have been boxed into a framework or similar by a third party. So instead of attributing all that goes wrong to which programming languages and frameworks we’re using, or not, let’s attribute some of it to us not staying with problems long enough to come up with elegant solutions.
+
+To get back on track, the game server is fully authoritative, as in having sole responsibility for controlling the game logic. The clients are dumb in that sense, only rendering views of the current state of the game—received from the server—and sending user input to the server. At the moment, the game is little more than a walking skeleton, albeit a skeleton that I’m pleased with when it comes to design principles like separation of concerns and single responsibility. The solution reflects the business logic of Puyo Puyo, with for example game, board and piece components represented in code. I even got to use the [null object pattern](https://en.wikipedia.org/wiki/Null_object_pattern){:target="blank"}, relieving the code of quite a few of those, from an object-oriented programming point of view, smelly if-statements.
+
+When I get the inspiration to do another iteration, I will probably prioritize an improved game lobby. Meanwhile, you and a buddy can play the game [here](https://me-puyo-puyo.herokuapp.com/){:target="blank"}, and view the source code [here](https://github.com/meliasson/puyo-puyo){:target="blank"}.
