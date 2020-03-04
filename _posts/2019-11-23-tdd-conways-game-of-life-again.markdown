@@ -1,12 +1,11 @@
 ---
-layout: post
-title: TDD Conway's Game of Life! Again!
 date: 2019-11-23
+layout: post
+splash: game-of-life-mod.jpg
 tags: [tdd]
+title: TDD Conway's Game of Life! Again!
 ---
 Yes it has been done before. By many, if not all. Probably even by me. And still there is value in doing it again, for beginners as well as for experts. By brushing up on the basics, we get an opportunity to evaluate, and if needed strengthen, our fundamental skills. So let's TDD Conway's Game of Life, again, and see what we learn this time.
-
-{% include image.html url="/assets/game-of-life.jpg" description="Conway's Game of Life in action. Can you also see how Fortnite et al. pales in comparison?" %}
 
 The Game of Life is a zero-player game, requiring no further input after receiving its initial configuration. The game consists of a two-dimensional infinite grid of cells, where each cell is alive or dead. Every cell interacts with its eight neighbours, which are the cells that are horizontally, vertically, or diagonally adjacent. At each step, the following transitions occur: 1) any live cell with fewer than two live neighbors dies, 2) any live cell with two or three live neighbors lives on, 3) any live cell with more than three live neighbors dies, and 4) any dead cell with exactly three live neighbors becomes a live cell.
 
@@ -28,7 +27,7 @@ test("live cell with zero live neighbors dies", () => {
 });
 {% endhighlight %}
 
-When writing code to make this test pass, we will do some fairly heavy lifting that we will not have to repeat for subsequent tests. We will for example define `stepModel`, and implement some kind of grid traversing, neighbor counting, algorithm, that respects grid boundaries. When we are done, and the test passes, we need one more for the same transition. One that it most likely will take less effort to pass:
+When writing code to make this test pass, we will do some fairly heavy lifting that we will not have to repeat for subsequent tests. We will for example define `stepGame`, and implement some kind of grid traversing, neighbor counting, algorithm, that respects grid boundaries. When we are done, and the test passes, we need one more for the same transition. One that it most likely will take less effort to pass:
 
 {% highlight javascript %}
 test("live cell with one live neighbor dies", () => {
@@ -98,4 +97,4 @@ test("dead cell with three live neighbors becomes live cell", () => {
 
 And that's it. When this test passes, we have a working implementation of Conways Game of Life on our hands. If I where to pick one key benefit of TDD this time around, it would be the clear split between what and how. When writing tests, the sole focus is on the what. When writing code to make the test pass, we do not bother with the what at all. We just listen to our tests, and can put our focus on the how. Which we appreciate immensely, since writing clean, intent revealing, code is challenging enough without splitting focus between what and how.
 
-A couple of details worth mentioning, before wrapping up: one is that the tests are written in [Jest](https://jestjs.io/){:target="_blank"}. The other is that you can find the full implementation, including the tests above [here](https://github.com/meliasson/game-of-life){:target="_blank"}. It is a React app, where I use the MVC design pattern for separation of concerns, and a responsive HTML canvas element for drawing the grid.
+A couple of details worth mentioning, before wrapping up: one is that the tests are written in [Jest](https://jestjs.io/){:target="_blank"}, and the other is that you can find the full implementation, including the tests above [here](https://github.com/meliasson/game-of-life){:target="_blank"}. And if you want to watch the game being played, you can do so [here](https://me-game-of-life.herokuapp.com/). It is a React app, where I use the MVC design pattern for separation of concerns, and a responsive HTML canvas element for drawing the grid.

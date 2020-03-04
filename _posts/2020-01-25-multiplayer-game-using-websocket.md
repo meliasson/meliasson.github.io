@@ -3,10 +3,9 @@ layout: post
 title: Multiplayer game using React and Websocket
 date: 2020-01-25
 tags: [game development, javascript]
+splash: puyo-puyo-mod.jpg
 ---
 I recently completed a first iteration on a real-time multiplayer browser game where the backend is built with [Websocket](https://en.wikipedia.org/wiki/WebSocket){:target="blank"} and [Express](https://expressjs.com/){:target="blank"}, and the frontend with [React](https://reactjs.org/){:target="blank"} and the [Canvas API](https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API){:target="blank"}. Partly because I was curious to find out if the client-server architecture that Websocket gives you is performant enough, and partly because I missed the nerve-racking [Puyo Puyo](https://en.wikipedia.org/wiki/Puyo_Puyo){:target="blank"} matches that took place in the KTH computer labs back when I studied for my master's degree.
-
-{% include image.html url="/assets/puyo-puyo.jpg" description="It was a fun, and sometimes more focus demanding than anticipated, experience to implement a multiplayer Puyo Puyo clone." %}
 
 I expected that a large part of the time I was about to spend on this project would be spent on understanding libraries and frameworks, as well as on performance increasing techniques like [client-side prediction](https://en.wikipedia.org/wiki/Client-side_prediction){:target="blank"}. Little did I think of, or worry about, the actual Puyo Puyo game logic. Maybe because I once upon a time implemented a [simple Tetris version](https://github.com/meliasson/tetris){:target="blank"}, now believing that I could draw on that experience, since Puyo Puyo and Tetris share some fundamental traits.
 

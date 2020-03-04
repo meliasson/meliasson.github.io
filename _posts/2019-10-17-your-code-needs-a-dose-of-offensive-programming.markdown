@@ -1,12 +1,11 @@
 ---
-layout: post
-title: Your code needs a dose of offensive programming
 date: 2019-10-17
+layout: post
+splash: laughing-cavalier-mod.jpg
 tags: [simplicity, robustness, offensive programming]
+title: Your code needs a dose of offensive programming
 ---
 You want simple and robust code? Where bugs are rare, easy to track down, and fixing them is as straightforward as possible? Unfortunately you are, most likely&mdash;together with the majority&mdash;busy creating rather the opposite. But do not despair, the offensive programming principle is here to help!
-
-{% include image.html url="/assets/laughing-cavalier.jpg" description="The expression on my face, when learning that others have shared my itch and invented the Offensive Programming principle for it, was probably close to the subject's smug face in the Laughing Cavalier by Frans Hals." %}
 
 In short, offensive programming is about establishing a line of defense for your program and, inside that line, adopt a zero tolerance policy for errors. Fail fast, and let errors ring out as loudly as possible. Put no effort into tolerating and handling them. Because if you do, you: 1) hide errors and make it hard to understand where they stem from, 2) risk putting your program in weird states; think blank screens and things just freezing up on you, 3) increase the size and complexity of your code, 4) welcome errors by tolerating them, and 5) make it difficult to discern what the actual, correct behavior of the program is. If you instead resist the urge to tolerate and handle all errors, you will have code that focuses on nothing but the correct behavior. The two examples below tries to illustrate the positive impact of offensive programming.
 

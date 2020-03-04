@@ -1,12 +1,11 @@
 ---
-layout: post
-title: A motion detecting alarm clock
 date: 2019-12-30
+layout: post
 tags: [raspberry pi, python]
+title: A motion detecting alarm clock
+splash: alarm-clock-mod.jpg
 ---
 If you, like me, happen to have a Raspberry Pi lying around, together with a motion sensor and a speaker, why not put it to work by building a motion detecting, weather reporting, inspirational quote reading alarm clock?
-
-{% include image.html url="/assets/alarm-clock.jpg" description="Let's find out if our Raspberry Pi's are as good at waking us up as they are at gathering dust!" %}
 
 I can’t come up with a single scenario where the return of investment on building your own alarm clock is anything but ridiculously high. If the clock actually works, you'll probably be so thrilled that you'll fly out of bed, and if it doesn't work, you'll simply get more sleep, right? And no matter if we get the clock working or not, we have&mdash;with a small project like this&mdash;a great opportunity to practice our fundamental programming skills.
 
