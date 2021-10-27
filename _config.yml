@@ -23,9 +23,10 @@ email: mikael.e.eliasson@gmail.com
 description: >- # this means to ignore newlines until "baseurl:"
   Mikael Eliasson's personal website.
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "" # the base hostname & protocol for your site, e.g. http://example.com
+url: "https://mikaeleliasson.se" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: nossailem
 github_username:  meliasson
+permalink: /:title
 
 # Build settings
 theme: minima

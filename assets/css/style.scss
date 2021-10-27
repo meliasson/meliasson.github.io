@@ -1,0 +1,157 @@
+// ---
+// ---
+
+// @import "minima/skins/{{ site.minima.skin | default: 'classic' }}";
+// @import "minima/initialize";
+
+// .startpage {
+//   display: flex;
+// }
+// .startpage > div {
+//   flex: 1; /*grow*/
+// }
+// .about {
+//   background: #00FF00;
+// }
+---
+---
+
+@import "{{ site.theme }}";
+
+body {
+  min-height: 100%;
+  background: #32c63f;
+}
+
+nav {
+  background: #32c63f;
+  color: #00ff00;
+  font-size: 56px;
+  padding: 28px;
+  font-family: Georgia;
+  font-weight: bold;
+  a, a:visited, a:hover {
+    color: #00ff00;
+    text-decoration: none;
+  }
+}
+
+.startpage {
+  ul {
+    list-style-type: none;
+    margin-left: 17px;
+  }
+
+  .first-row {
+    display: flex;
+  }
+
+  .about {
+    flex: 1;
+    background: #feb093;
+    color: #fd0000;
+    border: 10px solid #feb093;
+    div {
+      border: 1px solid #fd0000;
+      padding: 9px;
+      height: calc(100% - 20px);
+    }
+  }
+
+  .pet-projects {
+    flex: 1;
+    font-family: Courier New;
+    color: #404041;
+    background: #fec63f;
+    border: 10px solid #fec63f;
+    a, a:visited, a:hover {
+      color: #404041;
+      text-decoration: underline;
+    }
+    div {
+      padding: 10px;
+    }
+    h2 {
+      font-weight: bold;
+    }
+    ul {
+      list-style-type: disc;
+    }
+  }
+
+  .ramblings {
+    flex: 1;
+    color: #feb093;
+    background: #0000ff;
+    border: 10px solid #404041;
+    border-top: 10px solid #feb093;
+    border-bottom: 10px solid #feb093;
+    div {
+      padding: 10px;
+      height: calc(100% - 20px);
+    }
+    h2 {
+      text-transform: uppercase;
+    }
+    a, a:visited, a:hover {
+      color: #feb093;
+    }
+    ul {
+      margin: 0;
+    }
+    li {
+      border-bottom: 1px solid #feb093;
+      padding: 10px 0;
+    }
+    li:first-child {
+      border-top: 1px solid #feb093;
+    }
+  }
+
+  .second-row {
+    background: #fd0000;
+    color: #fec63f;
+    font-size: 48px;
+    font-weight: 100;
+    text-align: center;
+    font-style: italic;
+    p {
+      margin-bottom: 0;
+    }
+  }
+
+  .third-row {
+    display: flex;
+    div {
+      flex: 1;
+    }
+    .me {
+      display: flex;
+      justify-content: center;
+      align-content: center;
+      flex-direction: column;
+      background-image: url(/assets/welcome.jpeg);
+      background-size: cover;
+      background-position: center;
+      color: white;
+      text-align: center;
+      font-size: 64px;
+      h2 {
+        font-weight: 800;
+        text-transform: uppercase;
+      }
+    }
+    .books {
+      background: #fec63f;
+      color: #32c63f;
+      border: 10px solid #fec63f;
+      // font-weight: 800;
+      h2 {
+        // font-weight: 800;
+      }
+      div {
+        padding: 10px;
+      }
+    }
+  }
+}

@@ -1,0 +1,150 @@
+---
+---
+
+@import "{{ site.theme }}";
+
+html {
+  font-size: max(16px, 1.5vw);
+}
+
+body {
+  min-height: 100%;
+  font-size: 1rem;
+}
+
+nav {
+  background: #C6C5C3;
+  color: #E9E8E8;
+  font-size: 3rem;
+  padding: 1.25rem;
+  font-family: Georgia;
+  font-weight: bold;
+
+  a, a:visited, a:hover {
+    color: #E9E8E8;
+    text-decoration: none;
+  }
+}
+
+article {
+  color: #55514F;
+  padding: 30px 0;
+  flex: 1 0 auto;
+  max-width: calc(800px - 30px);
+  margin-right: auto;
+  margin-left: auto;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+a, a:visited, a:hover {
+  color: #55514F;
+  text-decoration: underline;
+}
+
+pre, code {
+  border: 1px solid #e0e0e0;
+  background-color: #f5f5f5;
+}
+
+.startpage {
+  ul {
+    list-style-type: none;
+    margin: 0;
+
+    li {
+      padding: 0 0 1.25rem 0;
+    }
+
+    li:first-child {
+
+    }
+  }
+
+  .row {
+    display: block;
+  }
+
+  .cell {
+    flex: 1;
+    color: #55514F;
+    background: #E9E8E8;
+    border: 0.625rem solid #E9E8E8;
+
+    div {
+      border: 1px solid #55514F;
+      border-radius: 0.1875rem;
+      padding: 0.5625rem;
+      height: calc(100% - 1.25rem);
+    }
+
+    &.inverted {
+      background: #55514F;
+      color: #E9E8E8;
+      border-color: #55514F;
+
+      div {
+        border-color: #E9E8E8;
+      }
+
+      a, a:visited, a:hover {
+        color: #e9e8e8;
+        text-decoration: underline;
+      }
+    }
+
+    &.quote {
+      background: #fec63f;
+      border-color: #fec63f;
+      color: #1c1614;
+      font-size: 2.5rem;
+      font-style: italic;
+      font-weight: 100;
+      text-align: center;
+
+      div {
+        border-color: #fec63f;
+      }
+
+      p {
+        margin-bottom: 0;
+      }
+
+      a, a:visited, a:hover {
+        color: #e9e8e8;
+        text-decoration: underline;
+      }
+    }
+
+    &.me {
+      background-image: url(/assets/welcome.jpeg);
+      background-position: center;
+      background-size: cover;
+      border: none;
+      font-size: 4rem;
+      padding: 0.625rem;
+
+      div {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-color: #fec63f;
+      }
+
+      h2 {
+        color: #fec63f;
+        margin: 0;
+        text-transform: uppercase;
+        font-weight: 800;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 761px) {
+  .startpage {
+    .row {
+      display: flex
+    }
+  }
+}
