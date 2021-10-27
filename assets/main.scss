@@ -15,7 +15,7 @@ body {
 nav {
   background: #C6C5C3;
   color: #E9E8E8;
-  font-size: 3rem;
+  font-size: 2rem;
   padding: 1.25rem;
   font-family: Georgia;
   font-weight: bold;
@@ -45,6 +45,10 @@ a, a:visited, a:hover {
 pre, code {
   border: 1px solid #e0e0e0;
   background-color: #f5f5f5;
+}
+
+h2, p {
+  margin-bottom: 0.9375rem;
 }
 
 .startpage {
@@ -146,5 +150,11 @@ pre, code {
     .row {
       display: flex
     }
+  }
+}
+
+@media screen and (min-width: 521px) {
+  nav {
+    font-size: 3rem;
   }
 }
