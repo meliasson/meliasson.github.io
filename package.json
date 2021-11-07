@@ -1,0 +1,22 @@
+{
+  "name": "meliasson.github.io",
+  "version": "1.0.0",
+  "description": "A GitHub Pages site.",
+  "main": "./assets/main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/meliasson/meliasson.github.io.git"
+  },
+  "author": "Mikael Eliasson",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/meliasson/meliasson.github.io/issues"
+  },
+  "homepage": "https://github.com/meliasson/meliasson.github.io#readme",
+  "devDependencies": {
+    "prettier": "2.4.1"
+  }
+}
