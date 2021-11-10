@@ -27,7 +27,38 @@
       };
     },
     step: function () {
-      console.log("let's take a step", this.grid);
+      // Clear grid.
+      for (let row = 0; row < this.nrOfRows; row++) {
+        for (let col = 0; col < this.nrOfColumns; col++) {
+          this.grid[row][col] = null;
+        }
+      }
+
+      // Update player.
+      this.player.body.pop();
+      const head = Object.assign({}, this.player.body[0]);
+      this.player.body.unshift(head);
+      switch (this.player.direction) {
+        case "west":
+          this.player.body[0].x -= 1;
+          break;
+        case "north":
+          this.player.body[0].y -= 1;
+          break;
+        case "east":
+          this.player.body[0].x += 1;
+          break;
+        case "south":
+          this.player.body[0].y += 1;
+          break;
+      }
+
+      // Place player in grid.
+      for (let i = 0; i < this.player.body.length; i++) {
+        model.grid[this.player.body[i].y][this.player.body[i].x] = true;
+      }
+
+      // TODO: Check for collisions.
     },
   };
 
@@ -41,6 +72,8 @@
     if (event.keyCode > 36 && event.keyCode < 41) {
       event.preventDefault();
     }
+    // TODO: Disallow the 180 degree turn. Probably the model's responsibility?
+    // Maybe model.player should expose a setDirection function?
     if (event.keyCode === 37) {
       model.player.direction = "west";
     } else if (event.keyCode === 38) {
@@ -52,35 +85,10 @@
     }
   });
 
-  // Controller: Start game loop. TODO: Save return value so we can end game and
-  // go to e.g. lobby?
+  // Controller: Start game loop.
+  // TODO: Save return value so we can end game and go to e.g. lobby?
   window.setInterval(() => {
-    // Model: Update player model.
-    const head = Object.assign({}, model.player.body[0]);
-    model.player.body.unshift(head);
-    if (model.player.direction === "west") {
-      model.player.body[0].x -= 1;
-    } else if (model.player.direction === "north") {
-      model.player.body[0].y -= 1;
-    } else if (model.player.direction === "east") {
-      model.player.body[0].x += 1;
-    } else if (model.player.direction === "south") {
-      model.player.body[0].y += 1;
-    }
-    model.player.body.pop();
-
-    // Model: Clear grid.
-    for (let i = 0; i < model.grid.length; i += 1) {
-      for (let j = 0; j < model.grid[i].length; j += 1) {
-        model.grid[i][j] = null;
-      }
-    }
-
-    // Model: Place player in grid. TODO: Check for collisions.
-    for (let i = 0; i < model.player.body.length; i += 1) {
-      bodyPart = model.player.body[i];
-      model.grid[bodyPart.y][bodyPart.x] = true;
-    }
+    model.step();
 
     // View: Render console grid.
     // let viewGrid = "";
@@ -119,5 +127,5 @@
         }
       }
     }
-  }, 100);
+  }, 200);
 })();
