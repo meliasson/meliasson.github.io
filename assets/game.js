@@ -194,7 +194,5 @@
     //   viewGrid += "\n";
     // }
     // console.log(viewGrid);
-
-    // View: Render canvas grid.
   }, 200);
 })();
