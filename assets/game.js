@@ -112,6 +112,43 @@
   model.init();
 
   //
+  // View stuff.
+  //
+
+  const buildCanvasView = () => {
+    const render = (model) => {
+      // TODO: Move static stuff like finding the element and getting the
+      // context into the "constructor".
+      const canvas = document.getElementById("canvas");
+      const context = canvas.getContext("2d");
+      canvas.width = canvas.offsetWidth;
+      canvas.height = canvas.offsetHeight;
+      context.clearRect(0, 0, canvas.width, canvas.height);
+      context.fillStyle = "#E9E8E8";
+      context.fillRect(0, 0, canvas.width, canvas.height);
+      const squareWidth = canvas.width / 80;
+      const squareHeight = canvas.height / 45;
+      context.fillStyle = "#55514f";
+      for (let i = 0; i < model.grid.length; i += 1) {
+        for (let j = 0; j < model.grid[i].length; j += 1) {
+          if (model.grid[i][j]) {
+            context.fillRect(
+              j * squareWidth,
+              i * squareHeight,
+              squareWidth,
+              squareHeight
+            );
+          }
+        }
+      }
+    };
+
+    return {
+      render,
+    };
+  };
+
+  //
   // Controller stuff.
   //
 
@@ -136,12 +173,13 @@
   };
 
   const playerController = buildPlayerController();
-
+  const canvasView = buildCanvasView();
   // Controller: Start game loop.
   // TODO: Save return value so we can end game and go to e.g. lobby?
   window.setInterval(() => {
     const playerDirection = playerController.getDirection();
     model.step(playerDirection);
+    canvasView.render(model);
 
     // View: Render console grid.
     // let viewGrid = "";
@@ -158,27 +196,5 @@
     // console.log(viewGrid);
 
     // View: Render canvas grid.
-    const canvas = document.getElementById("canvas");
-    const context = canvas.getContext("2d");
-    canvas.width = canvas.offsetWidth;
-    canvas.height = canvas.offsetHeight;
-    context.clearRect(0, 0, canvas.width, canvas.height);
-    context.fillStyle = "#E9E8E8";
-    context.fillRect(0, 0, canvas.width, canvas.height);
-    const squareWidth = canvas.width / 80;
-    const squareHeight = canvas.height / 45;
-    context.fillStyle = "#55514f";
-    for (let i = 0; i < model.grid.length; i += 1) {
-      for (let j = 0; j < model.grid[i].length; j += 1) {
-        if (model.grid[i][j]) {
-          context.fillRect(
-            j * squareWidth,
-            i * squareHeight,
-            squareWidth,
-            squareHeight
-          );
-        }
-      }
-    }
   }, 200);
 })();
