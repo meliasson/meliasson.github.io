@@ -148,6 +148,27 @@
     };
   };
 
+  const buildConsoleView = () => {
+    const render = (model) => {
+      let viewGrid = "";
+      for (let i = 0; i < model.grid.length; i += 1) {
+        for (let j = 0; j < model.grid[i].length; j += 1) {
+          if (model.grid[i][j]) {
+            viewGrid += "X";
+          } else {
+            viewGrid += "O";
+          }
+        }
+        viewGrid += "\n";
+      }
+      console.log(viewGrid);
+    };
+
+    return {
+      render,
+    };
+  };
+
   //
   // Controller stuff.
   //
@@ -180,19 +201,5 @@
     const playerDirection = playerController.getDirection();
     model.step(playerDirection);
     canvasView.render(model);
-
-    // View: Render console grid.
-    // let viewGrid = "";
-    // for (let i = 0; i < model.grid.length; i += 1) {
-    //   for (let j = 0; j < model.grid[i].length; j += 1) {
-    //     if (model.grid[i][j]) {
-    //       viewGrid += "X";
-    //     } else {
-    //       viewGrid += "O";
-    //     }
-    //   }
-    //   viewGrid += "\n";
-    // }
-    // console.log(viewGrid);
   }, 200);
 })();
