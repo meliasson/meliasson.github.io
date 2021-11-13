@@ -1,4 +1,68 @@
 (function () {
+  //
+  // Model stuff.
+  //
+
+  const buildPlayer = () => {
+    let body;
+    let direction;
+
+    const getBody = () => {
+      return body;
+    };
+
+    const getDirection = () => {
+      return direction;
+    };
+
+    const setBody = (newBody) => {
+      body = newBody;
+    };
+
+    const setDirection = (newDirection) => {
+      if (
+        !direction ||
+        (new RegExp("east|west").test(direction) &&
+          new RegExp("north|south").test(newDirection)) ||
+        (new RegExp("north|south").test(direction) &&
+          new RegExp("east|west").test(newDirection))
+      ) {
+        direction = newDirection;
+      }
+    };
+
+    const step = (newDirection) => {
+      setDirection(newDirection);
+      // TODO: Stop logic below into a function to get the same abstraction
+      // level as we get with setDirection?
+      body.pop();
+      const head = Object.assign({}, body[0]);
+      body.unshift(head);
+      switch (direction) {
+        case "west":
+          body[0].x -= 1;
+          break;
+        case "north":
+          body[0].y -= 1;
+          break;
+        case "east":
+          body[0].x += 1;
+          break;
+        case "south":
+          body[0].y += 1;
+          break;
+      }
+    };
+
+    return {
+      getBody,
+      getDirection,
+      setBody,
+      setDirection,
+      step,
+    };
+  };
+
   const model = {
     nrOfColumns: 80,
     nrOfRows: 45,
@@ -16,17 +80,16 @@
       // Create player in middle of grid.
       const headX = Math.floor(this.nrOfColumns / 2);
       const headY = Math.floor(this.nrOfRows / 2);
-      this.player = {
-        direction: "east",
-        body: [
-          { x: headX, y: headY },
-          { x: headX + 1, y: headY },
-          { x: headX + 2, y: headY },
-          { x: headX + 3, y: headY },
-        ],
-      };
+      this.player = buildPlayer();
+      this.player.setDirection("west");
+      this.player.setBody([
+        { x: headX, y: headY },
+        { x: headX + 1, y: headY },
+        { x: headX + 2, y: headY },
+        { x: headX + 3, y: headY },
+      ]);
     },
-    step: function () {
+    step: function (playerDirection) {
       // Clear grid.
       for (let row = 0; row < this.nrOfRows; row++) {
         for (let col = 0; col < this.nrOfColumns; col++) {
@@ -34,28 +97,12 @@
         }
       }
 
-      // Update player.
-      this.player.body.pop();
-      const head = Object.assign({}, this.player.body[0]);
-      this.player.body.unshift(head);
-      switch (this.player.direction) {
-        case "west":
-          this.player.body[0].x -= 1;
-          break;
-        case "north":
-          this.player.body[0].y -= 1;
-          break;
-        case "east":
-          this.player.body[0].x += 1;
-          break;
-        case "south":
-          this.player.body[0].y += 1;
-          break;
-      }
+      this.player.step(playerDirection);
 
       // Place player in grid.
-      for (let i = 0; i < this.player.body.length; i++) {
-        model.grid[this.player.body[i].y][this.player.body[i].x] = true;
+      for (let i = 0; i < this.player.getBody().length; i++) {
+        const { x, y } = this.player.getBody()[i];
+        model.grid[y][x] = true;
       }
 
       // TODO: Check for collisions.
@@ -65,30 +112,36 @@
   model.init();
 
   //
-  // Controller stuff below.
+  // Controller stuff.
   //
 
-  document.addEventListener("keydown", (event) => {
-    if (event.keyCode > 36 && event.keyCode < 41) {
-      event.preventDefault();
-    }
-    // TODO: Disallow the 180 degree turn. Probably the model's responsibility?
-    // Maybe model.player should expose a setDirection function?
-    if (event.keyCode === 37) {
-      model.player.direction = "west";
-    } else if (event.keyCode === 38) {
-      model.player.direction = "north";
-    } else if (event.keyCode === 39) {
-      model.player.direction = "east";
-    } else if (event.keyCode === 40) {
-      model.player.direction = "south";
-    }
-  });
+  const buildPlayerController = () => {
+    const directions = { 37: "west", 38: "north", 39: "east", 40: "south" };
+    let direction;
+
+    const getDirection = () => {
+      return direction;
+    };
+
+    document.addEventListener("keydown", (event) => {
+      direction = directions[event.keyCode];
+      if (direction) {
+        event.preventDefault();
+      }
+    });
+
+    return {
+      getDirection,
+    };
+  };
+
+  const playerController = buildPlayerController();
 
   // Controller: Start game loop.
   // TODO: Save return value so we can end game and go to e.g. lobby?
   window.setInterval(() => {
-    model.step();
+    const playerDirection = playerController.getDirection();
+    model.step(playerDirection);
 
     // View: Render console grid.
     // let viewGrid = "";
