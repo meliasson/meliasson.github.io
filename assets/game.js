@@ -3,22 +3,7 @@
   // Model stuff.
   //
 
-  const buildPlayer = () => {
-    let body;
-    let direction;
-
-    const getBody = () => {
-      return body;
-    };
-
-    const getDirection = () => {
-      return direction;
-    };
-
-    const setBody = (newBody) => {
-      body = newBody;
-    };
-
+  const buildPlayerModel = (body, direction) => {
     const setDirection = (newDirection) => {
       if (
         !direction ||
@@ -52,13 +37,10 @@
           body[0].y += 1;
           break;
       }
+      return body;
     };
 
     return {
-      getBody,
-      getDirection,
-      setBody,
-      setDirection,
       step,
     };
   };
@@ -80,14 +62,14 @@
       // Create player in middle of grid.
       const headX = Math.floor(this.nrOfColumns / 2);
       const headY = Math.floor(this.nrOfRows / 2);
-      this.player = buildPlayer();
-      this.player.setDirection("west");
-      this.player.setBody([
+      const body = [
         { x: headX, y: headY },
         { x: headX + 1, y: headY },
         { x: headX + 2, y: headY },
         { x: headX + 3, y: headY },
-      ]);
+      ];
+      const direction = "west";
+      this.player = buildPlayerModel(body, direction);
     },
     step: function (playerDirection) {
       // Clear grid.
@@ -97,11 +79,12 @@
         }
       }
 
-      this.player.step(playerDirection);
+      // TODO: Return body here instead of exposing and using a getBody function?
+      const playerBody = this.player.step(playerDirection);
 
       // Place player in grid.
-      for (let i = 0; i < this.player.getBody().length; i++) {
-        const { x, y } = this.player.getBody()[i];
+      for (let i = 0; i < playerBody.length; i++) {
+        const { x, y } = playerBody[i];
         model.grid[y][x] = true;
       }
 
@@ -112,7 +95,7 @@
   model.init();
 
   //
-  // View stuff.
+  // View definition.
   //
 
   const buildCanvasView = () => {
@@ -170,7 +153,7 @@
   };
 
   //
-  // Controller stuff.
+  // Controller definition.
   //
 
   const buildPlayerController = () => {
@@ -193,13 +176,33 @@
     };
   };
 
-  const playerController = buildPlayerController();
-  const canvasView = buildCanvasView();
-  // Controller: Start game loop.
-  // TODO: Save return value so we can end game and go to e.g. lobby?
-  window.setInterval(() => {
-    const playerDirection = playerController.getDirection();
-    model.step(playerDirection);
-    canvasView.render(model);
-  }, 200);
+  //
+  // Game loop definition.
+  //
+
+  const buildGameLoop = (model, view, controller) => {
+    const run = () => {
+      window.setInterval(() => {
+        const playerDirection = controller.getDirection();
+        model.step(playerDirection);
+        view.render(model);
+      }, 50);
+    };
+
+    return {
+      run,
+    };
+  };
+
+  //
+  // Initialize game loop and run it.
+  //
+
+  const gameLoop = buildGameLoop(
+    model,
+    buildCanvasView(),
+    buildPlayerController()
+  );
+
+  gameLoop.run();
 })();
