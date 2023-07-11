@@ -79,16 +79,24 @@
         }
       }
 
-      // TODO: Return body here instead of exposing and using a getBody function?
+      // Update player position.
       const playerBody = this.player.step(playerDirection);
+
+      // Check for collisions.
+      for (let i = 0; i < playerBody.length; i++) {
+        const { x, y } = playerBody[i];
+        if (x < 0 || x > this.nrOfColumns || y < 0 || y > this.nrOfRows ) {
+          // Player out of bounds. Restart game.
+          this.init();
+          return;
+        }
+      }
 
       // Place player in grid.
       for (let i = 0; i < playerBody.length; i++) {
         const { x, y } = playerBody[i];
         model.grid[y][x] = true;
       }
-
-      // TODO: Check for collisions.
     },
   };
 
