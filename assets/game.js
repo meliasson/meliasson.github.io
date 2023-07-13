@@ -18,8 +18,8 @@
 
     const step = (newDirection) => {
       setDirection(newDirection);
-      // TODO: Stop logic below into a function to get the same abstraction
-      // level as we get with setDirection?
+      // TODO: Move logic below into a function to get the same
+      // abstraction level as we get with setDirection?
       body.pop();
       const head = Object.assign({}, body[0]);
       body.unshift(head);
@@ -108,8 +108,8 @@
 
   const buildCanvasView = () => {
     const render = (model) => {
-      // TODO: Move static stuff like finding the element and getting the
-      // context into the "constructor".
+      // TODO: Move static stuff like finding the element and getting
+      // the context into the "constructor".
       const canvas = document.getElementById("canvas");
       const context = canvas.getContext("2d");
       canvas.width = canvas.offsetWidth;
