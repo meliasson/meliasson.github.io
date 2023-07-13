@@ -166,10 +166,10 @@
 
   const buildPlayerController = () => {
     const directions = {
-      37: "west",
-      38: "north",
-      39: "east",
-      40: "south",
+      left: "west",
+      up: "north",
+      right: "east",
+      down: "south",
     };
     let direction;
 
@@ -178,7 +178,7 @@
     };
 
     document.addEventListener("keydown", (event) => {
-      direction = directions[event.keyCode];
+      direction = directions[event.key];
       if (direction) {
         event.preventDefault();
       }
