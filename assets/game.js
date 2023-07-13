@@ -85,7 +85,7 @@
       // Check for collisions.
       for (let i = 0; i < playerBody.length; i++) {
         const { x, y } = playerBody[i];
-        if (x < 0 || x > this.nrOfColumns || y < 0 || y > this.nrOfRows ) {
+        if (x < 0 || x > this.nrOfColumns || y < 0 || y > this.nrOfRows) {
           // Player out of bounds. Restart game.
           this.init();
           return;
@@ -165,7 +165,12 @@
   //
 
   const buildPlayerController = () => {
-    const directions = { 37: "west", 38: "north", 39: "east", 40: "south" };
+    const directions = {
+      37: "west",
+      38: "north",
+      39: "east",
+      40: "south",
+    };
     let direction;
 
     const getDirection = () => {
