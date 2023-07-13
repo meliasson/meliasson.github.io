@@ -166,10 +166,10 @@
 
   const buildPlayerController = () => {
     const directions = {
-      left: "west",
-      up: "north",
-      right: "east",
-      down: "south",
+      a: "west",
+      w: "north",
+      d: "east",
+      s: "south",
     };
     let direction;
 
