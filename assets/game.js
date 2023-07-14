@@ -127,7 +127,7 @@
               j * squareWidth,
               i * squareHeight,
               squareWidth,
-              squareHeight
+              squareHeight,
             );
           }
         }
@@ -214,7 +214,7 @@
   const gameLoop = buildGameLoop(
     model,
     buildCanvasView(),
-    buildPlayerController()
+    buildPlayerController(),
   );
 
   gameLoop.run();
