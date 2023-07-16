@@ -46,9 +46,10 @@
   };
 
   const model = {
+    food: [],
+    grid: [],
     nrOfColumns: 80,
     nrOfRows: 45,
-    grid: [],
     player: null,
     init: function () {
       // Create grid.
@@ -77,6 +78,17 @@
         for (let col = 0; col < this.nrOfColumns; col++) {
           this.grid[row][col] = null;
         }
+      }
+
+      // Create food. Toggled off until less crude.
+      // if (this.food.length < 1) {
+      //   this.food.push({ x: 3, y: 4 });
+      // }
+
+      // Place food in grid.
+      for (let i = 0; i < this.food.length; i++) {
+        const { x, y } = this.food[i];
+        model.grid[y][x] = 0;
       }
 
       // Update player position.
@@ -119,10 +131,20 @@
       context.fillRect(0, 0, canvas.width, canvas.height);
       const squareWidth = canvas.width / 80;
       const squareHeight = canvas.height / 45;
-      context.fillStyle = "#55514f";
+      // context.fillStyle = "#55514f";
       for (let i = 0; i < model.grid.length; i += 1) {
         for (let j = 0; j < model.grid[i].length; j += 1) {
-          if (model.grid[i][j]) {
+          if (model.grid[i][j] == true) {
+            context.fillStyle = "#55514f";
+            context.fillRect(
+              j * squareWidth,
+              i * squareHeight,
+              squareWidth,
+              squareHeight,
+            );
+          }
+          if (model.grid[i][j] == 0) {
+            context.fillStyle = "#fec63f";
             context.fillRect(
               j * squareWidth,
               i * squareHeight,
