@@ -25,12 +25,15 @@
       quotee: 'Steve Jobs'
     },
   ]
-  
+
   function getRandomInt(max) {
     return Math.floor(Math.random() * max)
   }
 
   const quoteContainer = document.querySelector('.quote.cell div')
+  if (!quoteContainer) {
+      return
+  }
   const quote = quotes[getRandomInt(quotes.length)]
   quoteContainer.querySelector('p').innerHTML = '"' + quote.quote + '"'
   quoteContainer.querySelector('p:last-child').innerHTML = '&mdash;' + quote.quotee
