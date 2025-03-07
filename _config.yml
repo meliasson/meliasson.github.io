@@ -27,6 +27,7 @@ url: "https://mikaeleliasson.se" # the base hostname & protocol for your site, e
 twitter_username: nossailem
 github_username:  meliasson
 permalink: /:title
+permalinkg: pretty
 
 # Build settings
 theme: minima
