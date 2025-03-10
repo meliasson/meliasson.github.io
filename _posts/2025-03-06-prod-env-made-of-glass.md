@@ -4,7 +4,7 @@ layout: post
 title: Is your production environment made of glass?
 ---
 
-It seems like two fundamentally different styles exist when it comes to the handling of production environments. One treats it as a delicate artifact that must be protected at all costs; the other as a sturdy thing designed to take a beating and keep going. Let’s call the first one the glass style and the second the tank style.
+It seems like two fundamentally different styles exist when it comes to the handling of production environments. One treats it as a delicate artifact that must be protected at all costs; the other as something sturdy, designed to take a beating and keep going. Let’s call the first one the glass style and the second the tank style.
 
 When the glass style is used, change is considered dangerous. Processes are rigid. Delays are long. Quality gates are many. Trust is low, a select few are allowed to “touch the fragile glass”. And here we find reliance on staging environments; supposed to mirror production, but never quite succeeding.
 
