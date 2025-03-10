@@ -4,6 +4,7 @@ layout: post
 tags: [raspberry pi, python]
 title: A motion detecting alarm clock
 splash: alarm-clock-mod.jpg
+exclude_from_startpage: true
 ---
 If you, like me, happen to have a Raspberry Pi lying around, together with a motion sensor and a speaker, why not put it to work by building a motion detecting, weather reporting, inspirational quote reading alarm clock?
 

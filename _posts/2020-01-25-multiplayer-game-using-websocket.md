@@ -2,6 +2,7 @@
 date: 2020-01-25
 layout: post
 title: Multiplayer game using React and Websocket
+exclude_from_startpage: true
 ---
 I recently completed a first iteration on a real-time multiplayer browser game where the backend is built with [Websocket](https://en.wikipedia.org/wiki/WebSocket){:target="blank"} and [Express](https://expressjs.com/){:target="blank"}, and the frontend with [React](https://reactjs.org/){:target="blank"} and the [Canvas API](https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API){:target="blank"}. Partly because I was curious to find out if the client-server architecture that Websocket gives you is performant enough, and partly because I missed the nerve-racking [Puyo Puyo](https://en.wikipedia.org/wiki/Puyo_Puyo){:target="blank"} matches that took place in the KTH computer labs back when I studied for my master's degree.
 

@@ -2,6 +2,7 @@
 date: 2019-10-17
 layout: post
 title: Your code needs a dose of offensive programming
+exclude_from_startpage: false
 ---
 You want simple and robust code? Where bugs are rare, easy to track down, and fixing them is as straightforward as possible? Unfortunately you are, most likely&mdash;together with the majority&mdash;busy creating rather the opposite. But do not despair, the offensive programming principle is here to help!
 

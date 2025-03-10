@@ -2,6 +2,7 @@
 date: 2019-10-03
 layout: post
 title: Collections, we stopped returning null, right?
+exclude_from_startpage: false
 ---
 I am thinking about interfaces targeting collections here. Like a JSON API endpoint returning a collection of blog posts. Or the property of a blog post object, containing the tags of the blog post. We never return null&mdash;or anything else but collections&mdash;from interfaces like these, right?
 

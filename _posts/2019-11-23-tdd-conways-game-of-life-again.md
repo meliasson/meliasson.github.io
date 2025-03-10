@@ -2,6 +2,7 @@
 date: 2019-11-23
 layout: post
 title: TDD Conway's Game of Life! Again!
+exclude_from_startpage: false
 ---
 Yes it has been done before. By many, if not all. Probably even by me. And still there is value in doing it again, for beginners as well as for experts. By brushing up on the basics, we get an opportunity to evaluate, and if needed strengthen, our fundamental skills. So let's TDD Conway's Game of Life, again, and see what we learn this time.
 

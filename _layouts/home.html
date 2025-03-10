@@ -35,7 +35,8 @@ layout: default
       <div>
         <h2><a href="/ramblings/">Ramblings</a></h2>
         <ul>
-          {%- for post in site.posts -%}
+          {% assign filtered_posts = site.posts | where: "exclude_from_startpage", false %}
+          {%- for post in filtered_posts limit: 4 -%}
           <li>
             <a href="{{ post.url | relative_url }}">
               {{ post.title | escape }}
