@@ -35,6 +35,10 @@ article {
   margin-left: auto;
   padding-right: 15px;
   padding-left: 15px;
+
+  .post-meta {
+    font-size: calc(1rem - 2px);
+  }
 }
 
 a, a:visited, a:hover {
@@ -42,9 +46,14 @@ a, a:visited, a:hover {
   text-decoration: underline;
 }
 
+blockquote {
+  font-size: calc(1rem + 2px);
+}
+
 pre, code {
   border: 1px solid #e0e0e0;
   background-color: #f5f5f5;
+  font-size: calc(1rem - 1px);
   white-space: pre-wrap;
 }
 
@@ -79,7 +88,6 @@ h2, p {
       }
 
       p {
-        // color: #828282;
         margin-bottom: 15px;
       }
 
@@ -87,10 +95,6 @@ h2, p {
         color: #828282;
         font-size: 14px;
       }
-    }
-
-    li:first-child {
-
     }
   }
 }
@@ -102,10 +106,6 @@ h2, p {
 
     li {
       padding: 0 0 1.25rem 0;
-    }
-
-    li:first-child {
-
     }
   }
 
