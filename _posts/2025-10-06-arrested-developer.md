@@ -1,0 +1,26 @@
+---
+date: 2025-10-15
+layout: post
+title: The arrested developer
+exclude_from_startpage: false
+---
+
+Many years ago, a former colleague of mine described our work situation, generalizing about software development as a whole, as an adult kindergarten. At the time, I thought of it as a positive thing, like playing with Lego, only more fun and with better pay. But recently, I've started seeing another, more troubling, side of that metaphor. A side that is eerily similar to the psychological phenomenon known as arrested development.
+
+Arrested development describes a state where emotional or intellectual growth has been stunted. A primary cause is overbearing or controlling parenting, where a child is not given the autonomy to develop their own identity, make decisions, or learn from mistakes. Parents who are excessively protective or who micromanage their child's life may unintentionally hinder the development of essential life skills, leaving the child dependent and less able to function independently.
+
+Now, in the previous paragraph, replace "parent" with "management", and "child" with "team". A bit troubling, isn't it? And from my perspective, unfortunately, common. Many workplaces show exactly this pattern. Leaders who over-specify, over-protect, and over-structure create environments that encourage dependence, compliance, and risk aversion. Instead of developing autonomous professionals who own their outcomes, organizations often nurture teams that wait for instructions, follow roles closely, and hesitate to take initiative.
+
+I might be wrong, but I sometimes sense traces of arrested development in how organizations behave. Cameras stay off in remote meetings, microphones are muted by default, and people raise their virtual hands instead of speaking freely. Silence follows every "any thoughts" question, and meetings end with the familiar "alright, back to work" comment. Leadership may speak warmly about autonomy, yet always with the authoritative constraint that "it requires clearly defined boundaries". Leadership may open doors, with invitations to contribute, decide, or change, yet few step through. More often than not, it's someone "above" deciding what's important, setting priorities, and defining processes. Retrospectives focus, instead of inwards, on what other parts of the organization should do better. Comfort zones are often defended more strongly than customer value.
+
+The cause, I believe, lies in how work is organized and roles are defined. Take the developer's perspective as an example: requirement gatherers decide what to build, architects decide how to build it, and testers decide whether it works. Scrum masters plan the days and provide protection from outside interruptions. Project managers coordinate, report, and ensure the work fits the plan. Each role, process, and layer of structure may have been introduced with good intentions: to create clarity, safety, and predictability. But together, they remove responsibility from the people doing the work. They create distance between thinking and doing, between intention and outcome. One might, or maybe even should, wonder: how much room to maneuver does the developer really have?
+
+We design environments where people are shielded from consequence, disconnected from impact, and rewarded for following instructions. No wonder teams sometimes behave as passive recipients rather than active owners. It's not that people are unmotivated. It's that the system keeps them comfortable and small. It rewards predictability, not learning. Compliance, not curiosity. Silence, not reflection.
+
+David Snowden reminds us that organizations often misdiagnose the nature of their work. We treat complex problems&mdash;those that require experimentation, sense-making, and emergence&mdash;as if they were merely complicated. We assume that with enough planning, documentation, and governance, we can think our way to certainty. But software doesn’t work that way. People don’t work that way. Complexity won't be tamed with control.
+
+And yet, control is comforting. Predictability feels safe. Erin Meyer describes how organizations often choose process over culture, mistaking procedures for progress. When things get messy, we reach for more frameworks, more steering groups, more stage gates. Anything that restores the illusion of order. In doing so, we trade adaptability for compliance, and learning for control.
+
+This mindset has deep roots. Traditional management, as David Marquet points out, was designed for a world where leaders thought and workers did. Where obedience produced efficiency. That model can still generate predictable results when tasks are clear and outcomes known. But when the work depends on creativity, collaboration, and learning, treating people as extensions of a process stifles engagement.
+
+The good news is that this shouldn't be irreversible, right? Many organizations have unlearned these habits, instead embracing complexity and autonomy, proving that growing up is possible. Arrested development doesn't have to be our fate. We can reclaim responsibility and purpose. We can design teams and organizations where people are trusted, engaged, and connected to impact. Where development isn't arrested, but flourishing.
