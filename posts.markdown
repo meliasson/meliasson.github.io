@@ -5,14 +5,13 @@ permalink: /ramblings/
 ---
 
 <div class="postspage">
-  <h1>Ramblings</h1>
   <ul>
   {% for post in site.posts %}
     <li>
       <a href="{{ post.url }}">
-      <time>{{ post.date | date: "%b %d, %Y" }}</time>
-      <h2>{{ post.title }}</h2>
-      <p>{{ post.content | strip_html | truncate: 150 }}</p>
+      <h1 class="post-title">{{ post.title }}</h1>
+      <p class="post-meta">{{ post.date | date: "%B %d, %Y" }}</p>
+      <p>{{ post.content | strip_html | truncate: 200 }}</p>
       </a>
     </li>
   {% endfor %}
